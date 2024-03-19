@@ -1,5 +1,4 @@
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.util.List;
 
 public class BinaryTree {
     public Node root = null;
@@ -22,41 +21,62 @@ public class BinaryTree {
         }
     }
 
-    public void preOrder(Node currentNode) {
-        System.out.print(" " + currentNode.info);
+    public void preOrder(Node currentNode, List<Integer> preOrderList) {
+        preOrderList.add(currentNode.info);
 
         if (currentNode.left != null) {
-            preOrder(currentNode.left);
+            preOrder(currentNode.left, preOrderList);
         }
 
         if (currentNode.right != null) {
-            preOrder(currentNode.right);
+            preOrder(currentNode.right, preOrderList);
         }
     }
 
-    public void inOrder(Node currentNode) {
-
+    public void inOrder(Node currentNode, List<Integer> inOrderList) {
         if (currentNode.left != null) {
-            inOrder(currentNode.left);
+            inOrder(currentNode.left, inOrderList);
         }
 
-        System.out.print(" " + currentNode.info);
+        inOrderList.add(currentNode.info);
 
         if (currentNode.right != null) {
-            inOrder(currentNode.right);
+            inOrder(currentNode.right, inOrderList);
         }
     }
 
-    public void postOrder(Node currentNode) {
+    public void postOrder(Node currentNode, List<Integer> postOrderList) {
         if (currentNode.left != null) {
-            postOrder(currentNode.left);
+            postOrder(currentNode.left, postOrderList);
         }
 
         if (currentNode.right != null) {
-            postOrder(currentNode.right);
+            postOrder(currentNode.right, postOrderList);
         }
 
-        System.out.print(" " + currentNode.info);
+        postOrderList.add(currentNode.info);
+    }
+
+    public Integer searchMin(Node currentNode) {
+        if (currentNode == null) {
+            return null;
+        }
+        if (currentNode.left != null) {
+            return searchMin(currentNode.left);
+        } else {
+            return currentNode.info;
+        }
+    }
+
+    public Integer searchMax(Node currentNode) {
+        if (currentNode == null) {
+            return null;
+        }
+        if (currentNode.right != null) {
+            return searchMax(currentNode.right);
+        } else {
+            return currentNode.info;
+        }
     }
 }
 
