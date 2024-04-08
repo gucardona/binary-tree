@@ -1,0 +1,31 @@
+
+f
+java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(æ¼õşÿÿÿÿ
+0
+java:S1220""Move this file to a named package.
+E	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(‹ÿÉåúÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(®»†á
+E	java:S106"+Replace this use of System.out by a logger.(³ñê¡øÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(—·£Ÿşÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(“î…ùÿÿÿÿ
+f	java:S128"LEnd this switch case with an unconditional break, return or throw statement.(¶ªĞŒúÿÿÿÿ
+<	java:S131""Add a default case to this switch.(æ¼õşÿÿÿÿ
+E	java:S106+"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S106-"+Replace this use of System.out by a logger.(û»è’ıÿÿÿÿ
+E	java:S106."+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S1060"+Replace this use of System.out by a logger.(õ¹ç»ùÿÿÿÿ
+E	java:S1061"+Replace this use of System.out by a logger.(±ì¥µúÿÿÿÿ
+@	java:S1063"+Replace this use of System.out by a logger.(Ø¥¹
+@	java:S1064"+Replace this use of System.out by a logger.(éÖõ×
+E	java:S1066"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+@	java:S1068"+Replace this use of System.out by a logger.(½Š˜
+E	java:S1069"+Replace this use of System.out by a logger.(Ó±Å¹şÿÿÿÿ
+@	java:S106;"+Replace this use of System.out by a logger.(ò Æ×
+E	java:S106<"+Replace this use of System.out by a logger.(ÛÔø°ùÿÿÿÿ
+@	java:S106>"+Replace this use of System.out by a logger.(¸¬ãë
+E	java:S106?"+Replace this use of System.out by a logger.(¤² ×ûÿÿÿÿ
+E	java:S106A"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ
+E	java:S106D"+Replace this use of System.out by a logger.(»ßºƒşÿÿÿÿ
+3
+java:S2119I"Save and re-use this "Random".(¼İÅf

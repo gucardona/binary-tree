@@ -1,0 +1,10 @@
+digraph PreOrderBinaryTree {
+node [shape=circle, style=filled, color=black, fillcolor="#FFFFFD"];
+edge [color=black];
+10 -> 5;
+10 -> 20;
+5 -> 3;
+5 -> 7;
+20 -> 12;
+20 -> 31;
+}

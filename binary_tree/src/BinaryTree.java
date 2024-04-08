@@ -21,6 +21,36 @@ public class BinaryTree {
         }
     }
 
+    public Node remove(Integer info, Node currentNode) {
+        if (currentNode == null) {
+            return null;
+        }
+
+        if (info < currentNode.info) {
+            currentNode.left = remove(info, currentNode.left);
+        } else if (info > currentNode.info) {
+            currentNode.right = remove(info, currentNode.right);
+        } else {
+            if (currentNode.left == null && currentNode.right == null) {
+                return null;
+            } else if (currentNode.right == null) {
+                return currentNode.left;
+            } else if (currentNode.left == null) {
+                return currentNode.right;
+            } else {
+                Integer smallestValue = findSmallestValue(currentNode.right);
+                currentNode.info = smallestValue;
+                currentNode.right = remove(smallestValue, currentNode.right);
+            }
+        }
+
+        return currentNode;
+    }
+
+    private Integer findSmallestValue(Node root) {
+        return root.left == null ? root.info : findSmallestValue(root.left);
+    }
+
     public void preOrder(Node currentNode, List<Integer> preOrderList) {
         preOrderList.add(currentNode.info);
 

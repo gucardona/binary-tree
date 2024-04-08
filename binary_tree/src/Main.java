@@ -6,78 +6,95 @@ public class Main {
     public static void main(String[] args) {
         BinaryTree binaryTree = new BinaryTree();
         DotFile dotFile = new DotFile();
+
+        // original numbers: 10, 5, 20, 3, 7, 31, 12
+        List<Integer> originalNumbers = (Arrays.asList(10, 5, 20, 3, 7, 31, 12));
+
+        for (Integer number : originalNumbers) {
+            binaryTree.insert(number, binaryTree.root);
+        }
+
+        /** TODO: LET ONLY THE TREE THAT YOU WANT TO GENERATE WITHOUT COMMENT
+         *  TODO: AND COMMENT THE OTHERS.
+         *
+         *  TODO: EXAMPLE: IF YOU WANT TO GENERATE THE ORIGINAL BINARY TREE,
+         *  TODO: LET ONLY THE FIRST DOTFILE.GENERATEDOTFILE(...) AND THE PRINTINFO(...),
+         *  TODO: AND COMMENT THE OTHERS.
+         */
+
+        /** original binary tree means that there was no new insertions or deletions after the tree was created */
+//        dotFile.generateDotFile("original-binary-tree.dot", binaryTree);
+//        printInfo(binaryTree, "Original Binary Tree");
+
+        /** binary tree with five new insertion */
+//        binaryTree.insert( 1, binaryTree.root);
+//        binaryTree.insert(50, binaryTree.root);
+//        binaryTree.insert(32, binaryTree.root);
+//        binaryTree.insert(75, binaryTree.root);
+//        binaryTree.insert(4, binaryTree.root);
+//        dotFile.generateDotFile("binary-tree-with-five-new-insertions.dot", binaryTree);
+//        printInfo(binaryTree, "Binary Tree with Five New Insertions");
+
+        /** binary tree with one deletion */
+//        binaryTree.remove(20, binaryTree.root);
+//        dotFile.generateDotFile("binary-tree-with-one-deletion.svg", binaryTree);
+//        printInfo(binaryTree, "Binary Tree with One Deletion");
+
+        /** binary tree with two new insertions and one deletion */
+//        binaryTree.insert(50, binaryTree.root);
+//        binaryTree.insert(45, binaryTree.root);
+//        binaryTree.remove(20, binaryTree.root);
+//        dotFile.generateDotFile("binary-tree-with-two-new-insertions-and-one-deletion.dot", binaryTree);
+//        printInfo(binaryTree, "Binary Tree with Two New Insertions and One Deletion");
+
+        /** binary tree with five new insertion and one deletion */
+        binaryTree.insert( 1, binaryTree.root);
+        binaryTree.insert(50, binaryTree.root);
+        binaryTree.insert(32, binaryTree.root);
+        binaryTree.insert(75, binaryTree.root);
+        binaryTree.insert(4, binaryTree.root);
+        binaryTree.remove(5, binaryTree.root);
+        dotFile.generateDotFile("binary-tree-with-five-new-insertions-and-one-deletion.dot", binaryTree);
+        printInfo(binaryTree, "Binary Tree with Five New Insertions And One Deletion");
+    }
+
+    private static void printInfo( BinaryTree binaryTree, String treeName ) {
         List<Integer> preOrderList = new ArrayList<>();
         List<Integer> inOrderList = new ArrayList<>();
         List<Integer> postOrderList = new ArrayList<>();
 
-        try(Scanner sc = new Scanner(System.in)) {
-            System.out.println();
-            System.out.println("We have two options for you!");
-            System.out.println("1 to generate the tree with 7 random numbers, 2 to generate the tree with 7 selected numbers.");
-            System.out.println("The selected numbers will generate a pretty tree!");
-            System.out.print("Select 1 or 2: ");
-            int selectedType = sc.nextInt();
+        binaryTree.preOrder(binaryTree.root, preOrderList);
+        binaryTree.inOrder(binaryTree.root, inOrderList);
+        binaryTree.postOrder(binaryTree.root, postOrderList);
 
-            while (selectedType < 1 || selectedType > 2) {
-                System.out.println("Select a valid number...");
-                selectedType = sc.nextInt();
-            }
+        int minValue = binaryTree.searchMin(binaryTree.root);
+        int maxValue = binaryTree.searchMax(binaryTree.root);
 
-            List<Integer> numbers = new ArrayList<>();
-            switch (selectedType) {
-                case 1: numbers.addAll(generateRandomNumbers());
-                case 2: numbers.addAll(Arrays.asList(10, 5, 20, 3, 7, 31, 12));
-            }
+        System.out.println();
 
-            for (Integer num : numbers) {
-                binaryTree.insert(num, binaryTree.root);
-            }
+        System.out.println("+-----------------------------------------------------+");
 
-            binaryTree.preOrder(binaryTree.root, preOrderList);
-            binaryTree.inOrder(binaryTree.root, inOrderList);
-            binaryTree.postOrder(binaryTree.root, postOrderList);
+        System.out.println(treeName);
 
-            int minValue = binaryTree.searchMin(binaryTree.root);
-            int maxValue = binaryTree.searchMax(binaryTree.root);
+        System.out.println();
 
-            System.out.println();
+        System.out.print("minimum value: ");
+        System.out.println(minValue);
 
-            System.out.println("numbers: " + numbers);
-            System.out.println();
+        System.out.print("maximum value: ");
+        System.out.println(maxValue);
 
-            System.out.print("minimum value: ");
-            System.out.println(minValue);
+        System.out.println();
 
-            System.out.print("maximum value: ");
-            System.out.println(maxValue);
+        System.out.print("pre order list:  ");
+        System.out.println(preOrderList);
 
-            System.out.println();
+        System.out.print("in order list:   ");
+        System.out.println(inOrderList);
 
-            System.out.print("pre order list:  ");
-            System.out.println(preOrderList);
+        System.out.print("post order list: ");
+        System.out.println(postOrderList);
 
-            System.out.print("in order list:   ");
-            System.out.println(inOrderList);
-
-            System.out.print("post order list: ");
-            System.out.println(postOrderList);
-
-            System.out.println();
-            dotFile.generatePreOrderDotFile("pre-order-binary-tree.dot", binaryTree);
-        } catch (Exception e) {
-            System.out.println("An error occurred while running the program. Error: " + e.getMessage());
-        }
-    }
-
-    private static List<Integer> generateRandomNumbers() {
-        Random random = new Random();
-        List<Integer> randomNumbers = new ArrayList<>();
-        while (randomNumbers.size() < 7) {
-            Integer randomNumber = random.nextInt(7);
-            if (!randomNumbers.contains(randomNumber)) {
-                randomNumbers.add(randomNumber);
-            }
-        }
-        return randomNumbers;
+        System.out.println("+-----------------------------------------------------+");
     }
 }

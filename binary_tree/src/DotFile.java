@@ -2,12 +2,12 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 
 public class DotFile {
-    public void generatePreOrderDotFile(String fileName, BinaryTree binaryTree) {
-        try (PrintWriter output = new PrintWriter(new FileWriter(fileName))) {
+    public void generateDotFile( String fileName, BinaryTree binaryTree) {
+        try (PrintWriter output = new PrintWriter(new FileWriter(String.format("generated/dot-files/%s",fileName)))) {
             output.println("digraph PreOrderBinaryTree {");
             output.println("node [shape=circle, style=filled, color=black, fillcolor=\"#FFFFFD\"];");
             output.println("edge [color=black];");
-            writePreOrderDotFile(binaryTree.root, output);
+            writeDotFile(binaryTree.root, output);
             output.println("}");
 
             System.out.println("File saved.");
@@ -16,7 +16,7 @@ public class DotFile {
         }
     }
 
-    private void writePreOrderDotFile(Node root, PrintWriter output) {
+    private void writeDotFile( Node root, PrintWriter output) {
         if (root != null) {
             if (root.left != null) {
                 output.println(root.info + " -> " + root.left.info + ";");
@@ -26,8 +26,8 @@ public class DotFile {
                 output.println(root.info + " -> " + root.right.info + ";");
             }
 
-            writePreOrderDotFile(root.left, output);
-            writePreOrderDotFile(root.right, output);
+            writeDotFile(root.left, output);
+            writeDotFile(root.right, output);
         }
     }
 }
