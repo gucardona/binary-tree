@@ -108,5 +108,17 @@ public class BinaryTree {
             return currentNode.info;
         }
     }
+
+    public Node search(Integer info, Node currentNode) {
+        if (currentNode == null || currentNode.info.equals(info)) {
+            return currentNode;
+        }
+
+        if (info < currentNode.info) {
+            return search(info, currentNode.left);
+        } else {
+            return search(info, currentNode.right);
+        }
+    }
 }
 

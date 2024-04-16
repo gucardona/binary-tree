@@ -43,6 +43,25 @@ public class Main {
         System.out.println( "The dot file was generated.");
         System.out.println( "You can use the following command to generate the image:" );
         System.out.println( "dot -Tsvg generated/dot-files/" + generatedName + ".dot -o generated/svg-files/" + generatedName + ".svg" );
+        System.out.println();
+
+        System.out.println("Do you want to search a specific node from a value?");
+        System.out.println("1 - Yes");
+        System.out.println("else - No");
+
+        int search = scanner.nextInt();
+        if ( search == 1 ) {
+            System.out.println("Enter the value you want to search:");
+            int searchValue = scanner.nextInt();
+            Node node = binaryTree.search( searchValue, binaryTree.root );
+            if ( node != null ) {
+                System.out.println("Node found: " + node );
+            } else {
+                System.out.println("Node not found.");
+            }
+        }
+
+        scanner.close();
     }
 
     private static String generateRandomName() {
@@ -90,4 +109,6 @@ public class Main {
 
         System.out.println( "+-----------------------------------------------------+" );
     }
+
+
 }
